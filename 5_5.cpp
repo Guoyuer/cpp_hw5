@@ -30,9 +30,17 @@ double f(int a) {
     return 2 * a;
 }
 
+void f1(int &a) {
+    a *= 2;
+}
+
 Counter cf(f, true);
+Counter cf1(f1, true);
 
 int main() {
+    int x = 1;
     cout << cf(3) << endl << cf(3) << endl;
-    cout << cf.count;
+    cout << cf.count << endl;
+    cf1(x);//x's value won't change. don't know how
+    cout << x << endl;
 }
