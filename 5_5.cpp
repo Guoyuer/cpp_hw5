@@ -10,7 +10,7 @@ template<class T>
 class Counter {
 public:
 
-    explicit Counter(T _func, bool _counted) : func(_func), counted(_counted) {};
+    explicit Counter(T _func, bool _counted) : func(forward<T>(_func)), counted(_counted) {};
 
     template<class ...Args>
     auto operator()(Args ...args) {
